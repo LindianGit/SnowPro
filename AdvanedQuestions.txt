@@ -1,4 +1,4 @@
-
+ 
 1. A financial services company uses an internal named stage in Snowflake for daily transaction file ingestion. One day, the ingestion process fails, and the operations team must manually download the failed file and check for errors. The architect is tasked with improving this process to reduce manual intervention and speed up recovery. Which of the following Snowflake features would BEST address this requirement?
 
 A) Implementing Snowpipe with automatic error notifications and leveraging the COPY_HISTORY function to identify failed files  
@@ -403,73 +403,6 @@ C) Enable auto-scaling on the primary warehouse
 D) Use Snowflake Streams to synchronize data  
 
 **Correct Answer:** A
-
-**37. Before declaring the disaster recovery solution operational, what should the architect do to validate business continuity?**
-
-A) Promote the failover group in the secondary account and test data access and integrity  
-B) Archive the database in cold storage  
-C) Set up daily backups using external tables  
-D) Increase the replication frequency to every minute  
-
-**Correct Answer:** A
-
----
-
-**38. An analytics team migrated a legacy reporting system to Snowflake. Their queries now execute directly against large fact tables rather than precomputed summary tables, and they want to speed up performance and reduce compute costs without changing the query SQL or the reporting tool connections. Which Snowflake feature is best suited to address this requirement?**
-
-A) Clustering keys  
-B) Materialized Views  
-C) Query Result Caching  
-D) Data Masking  
-
-**Answer: B) Materialized Views**
-
----
-
-**39. The analytics team wants to reduce compute costs and improve query speed for their migrated reporting system in Snowflake, but they do not want to alter the queries or require users to connect to different tables. Which feature can transparently accelerate repeated queries with identical results without any changes on the client side?**
-
-A) Zero-Copy Cloning  
-B) Query Result Caching  
-C) External Tables  
-D) Time Travel  
-
-**Answer: B) Query Result Caching**
-
----
-
-**40. After migrating to Snowflake, the analytics team notices that some queries against large fact tables could be further optimized. They are not allowed to modify the original SQL or change the reporting tool’s data sources. Which approach should the architect recommend to optimize query performance in this scenario?**
-
-A) Repartitioning the data  
-B) Creating materialized views  
-C) Increasing the warehouse size  
-D) Optimizing clustering keys  
-
-**Answer: D) Optimizing clustering keys**
-
----
-
-**41. A global retailer wants to analyze daily sales reports stored as CSV files in their cloud storage (AWS S3). They need to query these files directly in Snowflake, enriching the data with the source file name and row number for auditing purposes. What is the most architecturally sound solution to enable this capability?**
-
-A) Load the files into an internal Snowflake table using the COPY INTO command and add custom columns for file name and row number during ETL.  
-B) Create an external stage pointing to the S3 bucket, and then define an external table in Snowflake that includes metadata columns for filename and file row number.  
-C) Use Snowpipe to continuously load the data into a permanent table and include file metadata in a separate mapping table.  
-D) Manually parse files outside Snowflake, append metadata, and upload them to a Snowflake internal stage.
-
-**Answer:** B) Create an external stage pointing to the S3 bucket, and then define an external table in Snowflake that includes metadata columns for filename and file row number.
-
----
-
-**42. A financial services company needs to ensure that sensitive customer data stored in external files is not exposed to unauthorized users when queried via Snowflake external tables. As a Snowflake Architect, which approach should you recommend to satisfy both security and business requirements?**
-
-A) Grant SELECT privileges on the external table to all users so they can access the data as needed.  
-B) Use row access policies in Snowflake to restrict data visibility based on user attributes, combined with secure external stages.  
-C) Allow unrestricted access to the cloud storage bucket and enforce security only at the Snowflake role level.  
-D) Copy the data into transient tables and delete them after use to limit exposure.
-
-**Answer:** B) Use row access policies in Snowflake to restrict data visibility based on user attributes, combined with secure external stages.
-**Answer:** B) Average queued time for queries per warehouse per day
-
-Here are your questions renumbered from 43 onward, with no '**' before the numbers:
 
 43. A healthcare company needs to restrict access to patient SSN data so that only users with the 'COMPLIANCE_OFFICER' role can view the unmasked information, while all other users see masked data. Which Snowflake context function should you use inside the masking policy to accomplish this requirement?
 
@@ -4711,7 +4644,74 @@ A. Increase the size of the virtual warehouse to the largest available
 B. Enable multi-cluster warehouses with auto-scaling to handle concurrency  
 C. Use a multi-cluster warehouse and set the minimum cluster count greater than one  
 
-https://github.com/LindianGit/SnowPro.git
 
+**37. Before declaring the disaster recovery solution operational, what should the architect do to validate business continuity?**
+
+A) Promote the failover group in the secondary account and test data access and integrity  
+B) Archive the database in cold storage  
+C) Set up daily backups using external tables  
+D) Increase the replication frequency to every minute  
+
+**Correct Answer:** A
+
+---
+
+496. An analytics team migrated a legacy reporting system to Snowflake. Their queries now execute directly against large fact tables rather than precomputed summary tables, and they want to speed up performance and reduce compute costs without changing the query SQL or the reporting tool connections. Which Snowflake feature is best suited to address this requirement?**
+
+A) Clustering keys  
+B) Materialized Views  
+C) Query Result Caching  
+D) Data Masking  
+
+**Answer: B) Materialized Views**
+
+---
+
+497. The analytics team wants to reduce compute costs and improve query speed for their migrated reporting system in Snowflake, but they do not want to alter the queries or require users to connect to different tables. Which feature can transparently accelerate repeated queries with identical results without any changes on the client side?**
+
+A) Zero-Copy Cloning  
+B) Query Result Caching  
+C) External Tables  
+D) Time Travel  
+
+**Answer: B) Query Result Caching**
+
+---
+
+498. After migrating to Snowflake, the analytics team notices that some queries against large fact tables could be further optimized. They are not allowed to modify the original SQL or change the reporting tool’s data sources. Which approach should the architect recommend to optimize query performance in this scenario?**
+
+A) Repartitioning the data  
+B) Creating materialized views  
+C) Increasing the warehouse size  
+D) Optimizing clustering keys  
+
+**Answer: D) Optimizing clustering keys**
+
+---
+
+499. A global retailer wants to analyze daily sales reports stored as CSV files in their cloud storage (AWS S3). They need to query these files directly in Snowflake, enriching the data with the source file name and row number for auditing purposes. What is the most architecturally sound solution to enable this capability?**
+
+A) Load the files into an internal Snowflake table using the COPY INTO command and add custom columns for file name and row number during ETL.  
+B) Create an external stage pointing to the S3 bucket, and then define an external table in Snowflake that includes metadata columns for filename and file row number.  
+C) Use Snowpipe to continuously load the data into a permanent table and include file metadata in a separate mapping table.  
+D) Manually parse files outside Snowflake, append metadata, and upload them to a Snowflake internal stage.
+
+**Answer:** B) Create an external stage pointing to the S3 bucket, and then define an external table in Snowflake that includes metadata columns for filename and file row number.
+
+---
+
+500. A financial services company needs to ensure that sensitive customer data stored in external files is not exposed to unauthorized users when queried via Snowflake external tables. As a Snowflake Architect, which approach should you recommend to satisfy both security and business requirements?**
+
+A) Grant SELECT privileges on the external table to all users so they can access the data as needed.  
+B) Use row access policies in Snowflake to restrict data visibility based on user attributes, combined with secure external stages.  
+C) Allow unrestricted access to the cloud storage bucket and enforce security only at the Snowflake role level.  
+D) Copy the data into transient tables and delete them after use to limit exposure.
+
+**Answer:** B) Use row access policies in Snowflake to restrict data visibility based on user attributes, combined with secure external stages.
+**Answer:** B) Average queued time for queries per warehouse per day
+
+
+
+https://github.com/LindianGit/SnowPro.git
 
 
