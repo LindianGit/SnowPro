@@ -30,7 +30,7 @@ D) Only allow ingestion during business hours to ensure staff are available for 
 
 **Answer:** A
 
-1. A large retail company is using a Snowflake Business Critical edition account and wants to share sales data with a partner company that only has a Snowflake Enterprise edition account. Which of the following statements is correct regarding this scenario?
+4. A large retail company is using a Snowflake Business Critical edition account and wants to share sales data with a partner company that only has a Snowflake Enterprise edition account. Which of the following statements is correct regarding this scenario?
 
 A) Data sharing is not possible between accounts of different editions.  
 B) Data sharing is only possible if both accounts are on the same edition and region.  
@@ -41,7 +41,7 @@ D) Data sharing is restricted to Virtual Private Snowflake (VPS) accounts only.
 
 ---
 
-2. An architect at a financial institution with a Snowflake Business Critical edition account is asked about sharing sensitive data with a subsidiary operating on an Enterprise edition account. Which approach is feasible?
+5. An architect at a financial institution with a Snowflake Business Critical edition account is asked about sharing sensitive data with a subsidiary operating on an Enterprise edition account. Which approach is feasible?
 
 A) Data sharing cannot occur unless the subsidiary upgrades to Business Critical.  
 B) The Business Critical account is permitted to share data with the Enterprise account, subject to Snowflake’s security and compliance controls.  
@@ -52,7 +52,7 @@ D) Data sharing requires both accounts to be in the same organization.
 
 ---
 
-3. A multinational company intends to share its analytics data with multiple partners, some of which use Business Critical edition and others use Enterprise edition Snowflake accounts. What is the key consideration when architecting data sharing for this scenario?
+6. A multinational company intends to share its analytics data with multiple partners, some of which use Business Critical edition and others use Enterprise edition Snowflake accounts. What is the key consideration when architecting data sharing for this scenario?
 
 A) Data sharing is only possible between accounts with the exact same edition.  
 B) The data provider’s edition must be lower or equal to the data consumer’s edition.  
@@ -61,7 +61,7 @@ D) Data sharing requires manual export and import of data between editions.
 
 **Correct Answer:** C
 
-1. The Business Intelligence team notices significant slowdowns in dashboard queries when multiple team members are running queries at the same time. As a Snowflake Architect, which of the following actions would best help you identify and troubleshoot the root cause?
+7. The Business Intelligence team notices significant slowdowns in dashboard queries when multiple team members are running queries at the same time. As a Snowflake Architect, which of the following actions would best help you identify and troubleshoot the root cause?
 
 A) Increase the warehouse size without analyzing query patterns.  
 B) Review the Query History and Warehouse Load in the Snowflake UI to identify concurrency or resource bottlenecks.  
@@ -72,7 +72,7 @@ D) Ask users to schedule their queries at different times without further invest
 
 ---
 
-2. During periods of high activity, BI dashboard queries are experiencing slow response times. What is the most effective first step for a Snowflake Architect to take in order to diagnose the performance bottleneck?
+8. During periods of high activity, BI dashboard queries are experiencing slow response times. What is the most effective first step for a Snowflake Architect to take in order to diagnose the performance bottleneck?
 
 A) Use Snowflake’s Query Profile to analyze individual queries and look for patterns such as queuing or resource contention.  
 B) Archive all historical data in the Snowflake account.  
@@ -83,7 +83,7 @@ D) Migrate the workload to another cloud provider immediately.
 
 ---
 
-3. Multiple users experience delays when running queries for dashboards in parallel. Which approach should the Snowflake Architect recommend to ensure minimal impact on business operations while identifying the issue?
+9. Multiple users experience delays when running queries for dashboards in parallel. Which approach should the Snowflake Architect recommend to ensure minimal impact on business operations while identifying the issue?
 
 A) Monitor the performance of the virtual warehouse using Resource Monitors and consider enabling Multi-cluster Warehouses to handle concurrency.  
 B) Disable dashboard access for all users until the issue is resolved.  
@@ -96,7 +96,7 @@ Here’s an additional question focused on the architectural decision of increas
 
 ---
 
-4. The BI team at your company reports query slowdowns when many users run dashboards simultaneously. After investigating, you find that the virtual warehouse is frequently queuing queries during peak periods. As a Snowflake Architect, what is an appropriate solution to address this issue?
+10. The BI team at your company reports query slowdowns when many users run dashboards simultaneously. After investigating, you find that the virtual warehouse is frequently queuing queries during peak periods. As a Snowflake Architect, what is an appropriate solution to address this issue?
 
 A) Reduce the size of the virtual warehouse to limit resource consumption.  
 B) Enable auto-suspend on the warehouse to save costs during idle periods.  
@@ -109,7 +109,7 @@ Here’s a scenario-based question (with answer choices and the correct answer r
 
 ---
 
-**Question 5.**  
+11.  
 An Architect is analyzing a slow-running query using the `QUERY_HISTORY` function in Snowflake. They observe that the `COMPILATION_TIME` for the query is significantly greater than the `EXECUTION_TIME`. Which of the following best explains this observation?
 
 A) The query is waiting for resources due to warehouse queuing.  
@@ -125,7 +125,7 @@ D) The data required for the query is stored in a remote region, causing high da
 When `COMPILATION_TIME` is greater than `EXECUTION_TIME`, it typically means the query is complex to parse, plan, or optimize, often involving dynamic SQL, lots of objects/tables, or complicated logic. The actual execution (reading and processing data) is relatively fast, but most time is spent preparing the query.
 
 
-A Snowflake Architect is investigating a query that has a much higher COMPILATION_TIME than EXECUTION_TIME in the QUERY_HISTORY results. Which scenario is most likely causing this observation?
+12. A Snowflake Architect is investigating a query that has a much higher COMPILATION_TIME than EXECUTION_TIME in the QUERY_HISTORY results. Which scenario is most likely causing this observation?
 
 A) The warehouse was suspended and had to be resumed before the query could execute.
 B) The query references many objects, such as multiple tables or complex views, causing Snowflake to spend more time parsing and optimizing before execution.
@@ -152,7 +152,7 @@ Here are two scenario-based questions related to using the `--mfa-passcode-in-pa
 
 ---
 
-**1.**  
+13  
 A Snowflake user’s password is `Winter2025`, and their current MFA token from their authenticator app is `654321`. When using SnowSQL with the `--mfa-passcode-in-password` flag and prompted for a password, which of the following should they enter?
 
 A) 654321Winter2025  
@@ -6513,3 +6513,4 @@ D. Tri-Secret Secure
 **Answer:** C
 
 https://github.com/LindianGit/SnowPro.git
+
